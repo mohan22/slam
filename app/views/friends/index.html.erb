@@ -1,0 +1,29 @@
+<body>
+<h1 style="color:white">Listing friends</h1></style>
+<table>
+  <tr>
+    
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @friends.each do |friend| %>
+  <tr>
+  <p style="color:white">
+    <td><%= friend.name %></td>
+    <td><%= friend.DOB %></td>
+    <td><%= friend.cell %></td>
+    <td><%= friend.aboutME %></td>
+    <td><%= link_to 'Show', friend %></td>
+    <td><%= link_to 'Edit', edit_friend_path(friend) %></td>
+    <td><%= link_to 'Destroy', friend, confirm: 'Are you sure?', method: :delete %></td>
+</p> 
+ </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Friend', new_friend_path %>
+</body>
