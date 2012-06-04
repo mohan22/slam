@@ -23,15 +23,26 @@ if ($openid->mode) {
         $first = $data['namePerson/first'];
         echo "Identity : $openid->identity <br>";
         echo "Email : $email <br>";
-
- echo "First name : $first";
+        echo "First name : $first";
     } else {
         echo "The user has not logged in";
     }
 } else {
     echo "Go to index page to log in.";
 }
-?> 
+?>
+<?php
+require_once 'openid.php';
+$openid = new LightOpenID("http://hollow-mist-9983.heroku.com/friends/new");
+ 
+$openid->identity = 'https://www.google.com/accounts/o8/id';
+$openid->required = array(
+  'namePerson/first',
+  'namePerson/last',
+  'contact/email',
+);
+$openid->returnUrl = 'http://hollow-mist-9983.heroku.com/friends/new/login.php'
+?>
 <h3 align="right">please sign on my slambook</h3>
 <%= render 'form' %>
 
