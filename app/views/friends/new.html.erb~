@@ -1,0 +1,6 @@
+<h1 indent=200px>MY friend</h1>
+<g:plusone></g:plusone> 
+<h3 align="right">please sign on my slambook</h3>
+<%= render 'form' %>
+
+<%= link_to 'Back', friends_path %>

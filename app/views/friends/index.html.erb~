@@ -26,5 +26,5 @@
 <br />
 
 <%= link_to 'New Friend', new_friend_path %>
-<g:plusone></g:plusone> 
+
 </body>

@@ -1,5 +1,16 @@
 <h1 indent=200px>MY friend</h1>
+<!-- Place this tag where you want the +1 button to render -->
+<g:plusone annotation="inline"></g:plusone>
 
+<!-- Place this render call where appropriate -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script> 
+<h3 align="right">please sign on my slambook</h3>
 <%= render 'form' %>
 
 <%= link_to 'Back', friends_path %>
