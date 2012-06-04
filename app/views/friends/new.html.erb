@@ -12,7 +12,7 @@
 </script>
 <?php
 require_once 'openid.php';
-$openid = new LightOpenID("http://hollow-mist-9983.heroku.com");
+$openid = new LightOpenID("http://hollow-mist-9983.heroku.com/friends/new");
  
 if ($openid->mode) {
     if ($openid->mode == 'cancel') {
