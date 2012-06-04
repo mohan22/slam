@@ -12,37 +12,14 @@
 </script>
 <?php
 require_once 'openid.php';
-$openid = new LightOpenID("http://hollow-mist-9983.heroku.com/friends/new");
- 
-if ($openid->mode) {
-    if ($openid->mode == 'cancel') {
-        echo "User has canceled authentication !";
-    } elseif($openid->validate()) {
-        $data = $openid->getAttributes();
-        $email = $data['contact/email'];
-        $first = $data['namePerson/first'];
-        echo "Identity : $openid->identity <br>";
-        echo "Email : $email <br>";
-        echo "First name : $first";
-    } else {
-        echo "The user has not logged in";
-    }
-} else {
-    echo "Go to index page to log in.";
-}
-?>
-<?php
-require_once 'openid.php';
-$openid = new LightOpenID("http://hollow-mist-9983.heroku.com/friends/new");
- 
+$openid = new LightOpenID;
+
 $openid->identity = 'https://www.google.com/accounts/o8/id';
-$openid->required = array(
-  'namePerson/first',
-  'namePerson/last',
-  'contact/email',
-);
-$openid->returnUrl = 'http://hollow-mist-9983.heroku.com/friends/new/login.php'
+$openid->required = array('contact/email');
+$openid->returnUrl = 'http://my-website.com/landing-login.php'
 ?>
+
+<a href="<?php echo $openid->authUrl() ?>">Login with Google</a>
 <h3 align="right">please sign on my slambook</h3>
 <%= render 'form' %>
 

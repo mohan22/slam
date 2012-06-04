@@ -10,8 +10,16 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
 </script>
+<?php
+require_once 'openid.php';
+$openid = new LightOpenID;
 
-<a href="<?php echo $openid->authUrl() ?>">Login with Google</a>
+$openid->identity = 'https://www.google.com/accounts/o8/id';
+$openid->required = array('contact/email');
+$openid->returnUrl = 'http://my-website.com/landing-login.php'
+?>
+
+
 <h3 align="right">please sign on my slambook</h3>
 <%= render 'form' %>
 
